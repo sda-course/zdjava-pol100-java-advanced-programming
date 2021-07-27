@@ -63,4 +63,8 @@ public class Person implements Comparable<Person>, Serializable {
     public int compareTo(Person o) {
         return this.name.compareTo(o.name);
     }
+
+    public String format(){
+        return String.format("");
+    }
 }

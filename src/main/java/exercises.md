@@ -26,6 +26,7 @@ Korzystając z `PersonRepository` oblicz:
 2. sumę wag osób urodzonych przed 1990 rokiem,
 3. najmniejszy wzrost osób z imieniem `Karol`,
 4. największą wagę.
+
 Korzystając z `CityRepository` oblicz:
 5. sumę populacji miast polskich,
 6. liczbę miast w USA.

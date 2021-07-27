@@ -95,6 +95,6 @@ public class City implements Serializable {
     }
 
     public String format(){
-        return String.format("%08d %20s %8.2f %8.2f %,12d %4s", id, name, latitude, longitude, population, code);
+        return String.format("%08d %30s %+8.2f %+8.2f %,12d %4s", id, name.length() > 30 ? name.substring(0, 30): name, latitude, longitude, population, code);
     }
 }
