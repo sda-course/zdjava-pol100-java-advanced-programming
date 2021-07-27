@@ -6,7 +6,7 @@ import repository.PersonRepository;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class Exercice3 {
+public class Exercise3 {
     public static void main(String[] args) {
         PersonRepository repository = new PersonRepository();
         //3.1
