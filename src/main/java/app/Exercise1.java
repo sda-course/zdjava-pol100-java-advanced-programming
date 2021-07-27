@@ -13,7 +13,7 @@ public class Exercise1 {
                 .forEach(p -> System.out.println(p));
         //1.2
         repository.findAll()
-                .filter(person -> person.getName().startsWith("A") && person.getName().endsWith("a"))
+                .filter(person -> person.getName().startsWith("K") && person.getName().endsWith("a"))
                 .forEach(p -> System.out.println(p));
         //1.3
         repository.findAll()
