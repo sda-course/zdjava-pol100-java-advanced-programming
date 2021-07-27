@@ -10,8 +10,6 @@ public class Exercise2 {
 
 
     public static void main(String[] args) throws IOException {
-        //sadasda adad
-        PersonRepository personRepository = new PersonRepository();
         CityRepository repository =
                 CityRepository.fromZip(Exercise2.class.getResourceAsStream("../cities500.zip"));
         repository
