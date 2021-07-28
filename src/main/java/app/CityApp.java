@@ -25,7 +25,7 @@ public class CityApp {
             //Lista polskich miast posortowana alfabetycznie
             repository.findAll()
                     .filter(city -> "PL".equals(city.getCode()))
-                    .sorted((c1, c2) ->Collator.getInstance(Locale.forLanguageTag("pl-PL")).compare(c1.getName(), c2.getName()))
+                    .sorted((c1, c2) -> Collator.getInstance(Locale.forLanguageTag("pl-PL")).compare(c1.getName(), c2.getName()))
                     .forEach(city -> System.out.println(city.format()));
         } catch (IOException e) {
             System.err.println(e.getMessage());
