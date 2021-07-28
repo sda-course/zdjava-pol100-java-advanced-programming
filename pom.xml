@@ -39,7 +39,7 @@
                 <version>0.0.4</version>
                 <configuration>
                     <mainClass>
-                        app.JavaFxApp
+                        javafx.JavaFxApp
                     </mainClass>
                 </configuration>
             </plugin>

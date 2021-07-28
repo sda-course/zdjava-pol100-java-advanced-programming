@@ -1,18 +1,18 @@
 # Tworzenie paczki jar
 
 ## Plik MANIFEST.MF
-W katalogu `META-INF` nale¿y umieœciæ plik manifestu, w którym jednym z najwa¿niejszych elementów jest okreœlenie
-punktu wejœcia. Przyk³adowa treœæ:
+W katalogu `META-INF` naleÅ¼y umieÅ›ciÄ‡ plik manifestu, w ktÃ³rym jednym z najwaÅ¼niejszych elementÃ³w jest okreÅ›lenie
+punktu wejÅ›cia. PrzykÅ‚adowa treÅ›Ä‡:
 ```
 Manifest-Version: 1.0
 Created-By: 1.7.0_06 (Oracle Corporation)
 Main-Class: nazwaKlasy
 ```
-W miejscu `nazwaKlasy` nale¿y wpisaæ nazwê klasy z metod¹ `main`. Ta klasa zostanie za³adowana jako pierwsza i 
-program zacznie siê od wykonania jej metody `main`.
+W miejscu `nazwaKlasy` naleÅ¼y wpisaÄ‡ nazwÄ™ klasy z metodÄ… `main`. Ta klasa zostanie zaÅ‚adowana jako pierwsza i 
+program zacznie siÄ™ od wykonania jej metody `main`.
 
 ## Dodanie pluginu w <code>pom.xml</code>
-Dodanie tego pluginu powoduje, ¿e Maven tworzy plik manifestu ze wskazan¹ klas¹ stanowi¹ca punkt wejœcia.
+Dodanie tego pluginu powoduje, Å¼e Maven tworzy plik manifestu ze wskazanÄ… klasÄ… stanowiÄ…ca punkt wejÅ›cia.
 
 ```xml
 <build>
@@ -32,9 +32,9 @@ Dodanie tego pluginu powoduje, ¿e Maven tworzy plik manifestu ze wskazan¹ klas¹ 
         </plugins>
     </build>
 ```
-W sekcji <code><mainClass>paczka.Klasa</mainClass></code> nale¿y wpisaæ klasê, która zawiera metodê `main`.
+W sekcji <code><mainClass>paczka.Klasa</mainClass></code> naleÅ¼y wpisaÄ‡ klasÄ™, ktÃ³ra zawiera metodÄ™ `main`.
 
-## Okreœlenie metody `packaging` w `pom.xml`
+## OkreÅ›lenie metody `packaging` w `pom.xml`
 ```xml
 <project>
     <packaging>jar</packaging>
@@ -44,25 +44,25 @@ W sekcji <code><mainClass>paczka.Klasa</mainClass></code> nale¿y wpisaæ klasê, k
 
 
 ## Kompilacja i tworzenie paczki
-Dla skonfigurowanego projektu Maven nale¿y wywo³aæ cel (View-->Tool Windows-->Maven, ikona z liter¹ M - Execute Maven goal):
+Dla skonfigurowanego projektu Maven naleÅ¼y wywoÅ‚aÄ‡ cel (View-->Tool Windows-->Maven, ikona z literÄ… M - Execute Maven goal):
 ```text
     mvn package
 ```
-To spowoduje, ¿e zostanie utworzony plik `artifatId-version.jar` w katalogu `target`.
+To spowoduje, Å¼e zostanie utworzony plik `artifatId-version.jar` w katalogu `target`.
 
 ## Uruchomienie
-W konsoli systemu operacyjnego np. `cmd.exe` wpisujemy polecenie uruchamiaj¹ce paczkê `jar`.
+W konsoli systemu operacyjnego np. `cmd.exe` wpisujemy polecenie uruchamiajÄ…ce paczkÄ™ `jar`.
 
 ```text
 java -jar paczka.jar
 ```
 
-Aby uzyskaæ poprawne kodowanie znaków w UTF-8 (Java koduje znaki w UTF-16) nale¿y dodaæ prze³¹cznik:
+Aby uzyskaÄ‡ poprawne kodowanie znakÃ³w w UTF-8 (Java koduje znaki w UTF-16) naleÅ¼y dodaÄ‡ przeÅ‚Ä…cznik:
 ```text
 java -jar -Dfile.encoding=UTF-8 paczka.jar
 ```
 
-W przypdaku pow³ok, które interpretuj¹ znak kropki nale¿y prze³¹cznik podaæ w cudzys³owiu.
+W przypdaku powÅ‚ok, ktÃ³re interpretujÄ… znak kropki naleÅ¼y przeÅ‚Ä…cznik podaÄ‡ w cudzysÅ‚owiu.
 ```text
 java -jar "-Dfile.encoding=UTF-8" paczka.jar
 ```
