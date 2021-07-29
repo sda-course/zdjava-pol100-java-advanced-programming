@@ -1,9 +1,8 @@
 package javafx;
 
-import app.RepeatApp;
 import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
@@ -13,7 +12,7 @@ import javafx.stage.Stage;
 public class JavaFxApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Group root = new Group();
+        Pane root = new Pane();
         Rectangle rectangle = new Rectangle(50, 50);
         rectangle.setFill(Color.DARKMAGENTA);
         rectangle.setX(200);
@@ -28,6 +27,13 @@ public class JavaFxApp extends Application {
         root.getChildren().add(line);
         circle.setOnMouseClicked(e -> {
             circle.setFill(circle.getFill() == Color.RED ? Color.GREEN : Color.RED);
+        });
+        rectangle.setOnMouseClicked(e -> {
+            Thread thread = new AnimationBall(circle);
+            thread.start();
+            Thread vThrea = new VerticalAnimationBall(circle);
+            vThrea.start();
+
         });
         Scene scene = new Scene(root, 600, 400);
         stage.setScene(scene);
