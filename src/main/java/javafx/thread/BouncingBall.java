@@ -1,17 +1,18 @@
-package javafx;
+package javafx.thread;
 
 import javafx.application.Platform;
-import javafx.scene.Group;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 
 public class BouncingBall implements Runnable {
     private final Circle ball;
-    private final Group parent;
+    private final Pane parent;
     private double dx;
     private double dy;
     private final BallCounter counter;
+    private int localCounter;
 
-    public BouncingBall(Circle ball, Group parent, double dx, double dy, BallCounter counter) {
+    public BouncingBall(Circle ball, Pane parent, double dx, double dy, BallCounter counter) {
         this.ball = ball;
         this.parent = parent;
         this.dx = dx;
@@ -34,16 +35,16 @@ public class BouncingBall implements Runnable {
             double x = ball.getCenterX();
             double y = ball.getCenterY();
             double r = ball.getRadius();
-            //TODO do zmiany, rozmiary rodzica
-            if (x - r < 0){
+            if (x - r + dx < parent.getLayoutX()){
                 dx = - dx;
                 //liczymy odbicia od lewej ścianki
                 counter.increment();
+                localCounter++;
             }
-            if (x + r > 600) {
+            if (x + r + dx> parent.getLayoutX() + parent.getWidth()) {
                 dx = -dx;
             }
-            if (y - r < 0 || y + r > 400) {
+            if (y - r +dy < parent.getLayoutY() || y + r + dy > parent.getHeight()) {
                 dy = -dy;
             }
             Platform.runLater(() -> {
@@ -52,5 +53,9 @@ public class BouncingBall implements Runnable {
             });
         }
         System.out.println("Zakończono animację!");
+    }
+
+    public int getLocalCounter() {
+        return localCounter;
     }
 }

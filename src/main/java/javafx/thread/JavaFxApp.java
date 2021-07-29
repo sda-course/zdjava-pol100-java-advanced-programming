@@ -1,4 +1,4 @@
-package javafx;
+package javafx.thread;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

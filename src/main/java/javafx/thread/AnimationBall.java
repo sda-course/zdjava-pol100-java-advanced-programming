@@ -1,4 +1,4 @@
-package javafx;
+package javafx.thread;
 
 import javafx.application.Platform;
 import javafx.scene.shape.Circle;

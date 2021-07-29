@@ -1,4 +1,4 @@
-package javafx;
+package javafx.thread;
 
 public class BallCounter {
     private volatile int counter;
