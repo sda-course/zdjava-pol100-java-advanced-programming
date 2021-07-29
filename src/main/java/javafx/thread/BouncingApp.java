@@ -50,17 +50,8 @@ public class BouncingApp extends Application {
                 balls.stream().map(ball -> new BouncingBall(ball, root, 1 + random.nextDouble() * 5, 1 + random.nextDouble()* 5, counter))
                         .collect(Collectors.toList());
         List<Thread> threads = animations.stream().map(Thread::new).collect(Collectors.toList());
-        //Przypisanie do każdej kulki metody obsługi kliknięcia
-        balls.forEach(ball -> ball.setOnMouseClicked(e -> {
-            if (!isTermined) {
-                isTermined = true;
-                threads.forEach(Thread::interrupt);
-                System.out.println("suma lokalnych liczników: " + animations.stream().mapToInt(BouncingBall::getLocalCounter).reduce(0, (a,b) -> a + b));
-                System.out.println("licznik globalny: " + counter.get());
-            }
-        }));
         //uruchamiamy wątki z kolekcji
-        threads.stream().forEach(thread -> thread.start());
+        threads.forEach(Thread::start);
         root.getChildren().addAll(balls);
         root.getChildren().add(counterInfo);
         stage.setScene(scene);
