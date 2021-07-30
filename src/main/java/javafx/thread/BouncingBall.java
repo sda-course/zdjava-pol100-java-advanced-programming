@@ -37,8 +37,9 @@ public class BouncingBall implements Runnable {
             double r = ball.getRadius();
             if (x - r + dx < parent.getLayoutX()){
                 dx = - dx;
-                //liczymy odbicia od lewej ścianki
+                //liczymy odbicia od lewej ścianki, zwiększamy licznik globalny, dzielony między wątkami
                 counter.increment();
+                //zwiększamy licznik lokalny
                 localCounter++;
             }
             if (x + r + dx> parent.getLayoutX() + parent.getWidth()) {

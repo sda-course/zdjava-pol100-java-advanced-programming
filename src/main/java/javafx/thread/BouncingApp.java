@@ -19,7 +19,6 @@ import java.util.stream.IntStream;
 
 public class BouncingApp extends Application {
     public static Random random = new Random();
-    public static boolean isTermined = false;
     @Override
     public void start(Stage stage) throws Exception {
         Pane root = new Pane();
